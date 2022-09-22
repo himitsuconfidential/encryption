@@ -198,7 +198,12 @@
         <div><p><span id="demo0"></span><b id="demo1"></b></p>
         </div>
     </div>
-    
+    <script>
+        var temp = sessionStorage.getItem('temp')
+        sessionStorage.removeItem('temp')
+        if (temp != null)
+            document.getElementById("text").value = temp
+    </script>
 
 </body>
 </html>

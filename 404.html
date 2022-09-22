@@ -3,10 +3,14 @@
   <head>
     <title></title>
   </head>
-  <body></body>
+  <body>Invalid Path</body>
   <script>
-    console.log(window.location.href)
-    console.log(window.location.pathname)
-    //window.location.href = 'https://himitsuconfidential.github.io/encryption/'
+    var name = window.location.pathname
+    var split_name = name.split('/')
+    var temp = split_name[split_name.length-1]
+    if (temp != ''){
+      sessionStorage.setItem('temp', temp)
+    }
+    window.location.href = 'https://himitsuconfidential.github.io/encryption/'
   </script>
 </html>
