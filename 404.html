@@ -3,14 +3,25 @@
   <head>
     <title></title>
   </head>
-  <body>Invalid Path</body>
+  <body><div id="content"></div></body>
   <script>
     var name = window.location.pathname
-    var split_name = name.split('/')
-    var temp = split_name[split_name.length-1]
+    var temp = ''
+
+    if (name.startsWith('/encryption/')){
+      name = name.slice('/encryption/'.length)
+      var temp = name.slice(0,name.length - (name.endsWith('/')))
+    }
+    
+    
     if (temp != ''){
       sessionStorage.setItem('temp', temp)
+      document.getElementById("content").innerHTML = 'Redirecting'
+      window.location.href = 'https://himitsuconfidential.github.io/encryption/'
     }
-    window.location.href = 'https://himitsuconfidential.github.io/encryption/'
+    else{
+      document.getElementById("content").innerHTML = 'Invalid path'
+    }
+    
   </script>
 </html>
